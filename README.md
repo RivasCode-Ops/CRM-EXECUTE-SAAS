@@ -52,6 +52,10 @@ Este repositório usa [npm workspaces](https://docs.npmjs.com/cli/using-npm/work
 - `web` — aplicação Next.js
 - `api` — API (placeholder; implementação futura)
 
+## Primeiro passo
+
+Checklist completo: [docs/primeiro-passo.md](docs/primeiro-passo.md).
+
 ## Supabase e Vercel
 
 - **Supabase:** projeto **novo** (só havia teste no antigo; banco zerado). Schema em `infra/supabase/`.

@@ -34,8 +34,8 @@ Detalhes: [infra/terraform/README.md](../infra/terraform/README.md).
 1. [dashboard.supabase.com](https://supabase.com/dashboard) → **New project**.
 2. Região próxima aos usuários; senha do DB anotada em cofre de senhas.
 3. **Settings → API**: copiar `Project URL` e `anon` `public` key.
-4. **SQL Editor**: `schema.sql` → `seed.sql` → (Auth user) → `bootstrap_admin.sql` — ver `infra/supabase/README.md`.
-5. **Authentication → Users**: criar usuário; atribuir role `admin` em `user_profiles`.
+4. **SQL Editor** (ordem): `infra/supabase/schema.sql` → `seed.sql` → ver passo 5.
+5. **Authentication → Users**: criar usuário → rodar `infra/supabase/bootstrap_admin.sql` (troque `<AUTH_USER_UUID>`).
 
 ### Env local
 
