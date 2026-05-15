@@ -1,0 +1,13 @@
+# Copie para terraform.tfvars (não commitar).
+# Tokens: use variáveis de ambiente TF_VAR_* ou este arquivo local.
+
+supabase_access_token    = "sbp_..."
+supabase_organization_id = "seu-org-slug"
+supabase_db_password     = "senha-forte-aleatoria"
+
+vercel_api_token = "..."
+# vercel_team_id = "team_..."  # opcional
+
+# Após 1º terraform apply + criar projeto no Supabase:
+# supabase_anon_key         = "eyJ..."
+# supabase_service_role_key = "eyJ..."  # opcional
