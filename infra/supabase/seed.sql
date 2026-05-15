@@ -1,10 +1,12 @@
--- Seed inicial (rodar após schema.sql no SQL Editor)
+-- Seed adicional (opcional após schema.sql)
+-- A organização e planos já são criados no schema.sql
 
-INSERT INTO public.organizations (slug, nome, plano)
-VALUES ('rivaldo', 'Execute Construrent', 'pro')
-ON CONFLICT (slug) DO NOTHING;
-
--- Templates de checklist: adicionar por tipo_processo conforme o produto evoluir.
--- Exemplo:
--- INSERT INTO public.checklist_templates (tipo_processo, descricao, ordem)
--- VALUES ('itbi', 'RG e CPF do comprador', 1);
+-- Exemplo: assinatura da org execute
+INSERT INTO public.assinaturas (organization_id, plano_id, status)
+SELECT o.id, 'pro', 'ativa'
+FROM public.organizations o
+WHERE o.slug = 'execute'
+  AND NOT EXISTS (
+    SELECT 1 FROM public.assinaturas a
+    WHERE a.organization_id = o.id AND a.plano_id = 'pro' AND a.status = 'ativa'
+  );

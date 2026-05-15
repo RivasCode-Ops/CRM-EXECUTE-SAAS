@@ -1,29 +1,34 @@
 # Supabase — CRM Execute
 
-Banco **novo** (sem migrar dados do CRM antigo).
+## Ordem (projeto novo)
 
-## Ordem de execução (SQL Editor)
+1. **SQL Editor** → colar e executar **`schema.sql`** inteiro (uma vez)
+2. **Auth** → Users → criar usuário
+3. **`bootstrap_admin.sql`** → trocar `<AUTH_USER_UUID>`
+4. *(Opcional)* **`seed.sql`**
 
-1. **`schema.sql`** — tabelas, enums, triggers, RLS
-2. **`seed.sql`** — organização inicial (`rivaldo`)
-3. **Auth** → criar usuário admin no Dashboard
-4. **`bootstrap_admin.sql`** — vincular usuário à org (trocar `<AUTH_USER_UUID>`)
+Não rode `schema_mvp.sql` nem `migrations/` — são do CRM legado.
 
-## Legado (não usar em projeto novo)
+## O que o schema inclui
 
-A pasta `migrations/` e `schema_mvp.sql` vêm do CRM abandonado (`crm - execute`). Use apenas se for portar código antigo. Para o monorepo novo, **`schema.sql` é a fonte da verdade**.
+- Multi-tenant: `organizations`, `organization_members`
+- Negócio: `clientes`, `processos`, `documentos`, `honorarios`, `pagamentos`
+- Event sourcing: `event_store`, `processos_projection`
+- Portal: `links_portal`, `token_portal` em clientes
+- Planos: `planos`, `assinaturas`
+- RLS por organização em todas as tabelas sensíveis
 
-## Modelo
+## Organização padrão
 
-| Tabela | Papel |
-|--------|--------|
-| `organizations` | Tenant |
-| `organization_members` | Usuário × org + perfil |
-| `clientes` | Clientes da org |
-| `processos` | Número auto `EXE-YYYY-NNNN` |
-| `checklist_templates` | Catálogo por tipo de processo |
-| `checklist_itens` | Checklist por processo |
+- Slug: **`execute`**
+- Nome: Execute Construrent
+- Plano: `pro`
 
-## Env
+## Env (web)
 
-URL e keys em `web/.env.local` — ver `web/.env.example`.
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+Ver `web/.env.example`.

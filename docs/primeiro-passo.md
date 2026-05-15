@@ -10,8 +10,8 @@ Tudo que precisa existir **antes** de testar login e dashboard.
 ## 2. Supabase (você faz no painel)
 
 - [ ] Criar projeto novo (`crm-execute-prod` ou similar)
-- [ ] SQL Editor → `infra/supabase/schema.sql`
-- [ ] SQL Editor → `infra/supabase/seed.sql`
+- [ ] SQL Editor → colar e executar **`infra/supabase/schema.sql`** (script completo, uma vez)
+- [ ] *(Opcional)* `infra/supabase/seed.sql`
 - [ ] Auth → Users → criar usuário (e-mail + senha)
 - [ ] SQL Editor → `infra/supabase/bootstrap_admin.sql` (UUID do usuário)
 
