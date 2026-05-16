@@ -242,7 +242,8 @@ CREATE TABLE IF NOT EXISTS public.processos_projection (
   data_entrada DATE,
   percentual_concluido INT DEFAULT 0,
   ultimo_evento_id UUID,
-  ultima_atualizacao TIMESTAMPTZ DEFAULT now()
+  ultima_atualizacao TIMESTAMPTZ DEFAULT now(),
+  criado_em TIMESTAMPTZ DEFAULT now()
 );
 
 -- 13. TABELA: DOCUMENTOS
